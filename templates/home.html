@@ -1,0 +1,25 @@
+<template name="top-bar">
+    <div class="top-bar">
+    <h1 class="game-name">BridgeHub</h1>
+    {{#if currentUser }}
+        <span class="current-user">{{loginButtons}}</span>
+    {{/if}}
+    </div>
+</template>
+
+<template name="visitor">
+    <div class="centered">
+    <p>
+        <img src="img/ace-of-spade.png">
+    </p>
+    <p class="intro">Play bridge with friends.</p>
+    <div class="login-buttons">
+        {{loginButtons}}
+    </div>
+    </div>
+</template>
+
+<template name="intro">
+
+    {{> visitor}}
+</template>

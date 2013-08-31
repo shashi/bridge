@@ -1,0 +1,422 @@
+/* CSS declarations go here */
+
+@import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display+SC);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+
+
+html {
+    min-height: 100%;
+}
+body {
+    position: relative;
+    font-family: 'Titillium Web';
+    font-weight: 300;
+    width: 1000px;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+h1.game-name {
+    font-family: 'Playfair Display SC';
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+    font-size: 24pt;
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 1em;
+    padding: .6em;
+}
+.create-game {
+    width: 720px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 16pt;
+    font-weight: normal;
+}
+
+.intro {
+    font-size: 20pt;
+}
+
+.login-buttons {
+}
+
+.centered {
+    text-align: center;
+}
+
+.current-user {
+    float: right;
+    opacity: 0.25;
+}
+.current-user:hover {
+    opacity: 1;
+}
+
+.login-link-text {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.card {
+    width: 30px;
+    padding-bottom: 10px;
+    float: left;
+}
+.card-content {
+    width: 60px;
+    background: white;
+    border-radius: 3pt;
+    height: 100px;
+    box-shadow: 0 0 3px #6B4C1A;
+}
+.card .symbol, .card .suit {
+}
+
+.club, .spade {
+    color: black;
+}
+
+.heart, .diamond {
+    color: #D93434;
+}
+
+.pass {
+    color: #D93434;
+}
+
+.pass .suit:after {
+    content: 'pass';
+    font-style: italic;
+}
+
+.notrump .suit:after {
+    content: '?';
+    font-style: italic;
+}
+
+.card .suit {
+    line-height: 10pt;
+}
+
+.club .suit:after {
+    content: '\2663';
+}
+.diamond .suit:after {
+    content: '\2666';
+}
+.heart .suit:after {
+    content: '\2665';
+}
+.spade .suit:after {
+    content: '\2660';
+}
+
+
+.card .symbol {
+    font-size: 12pt;
+    padding: 4pt;
+}
+.card .symbol.right {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    text-align: left;
+}
+.search-results {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.card .symbol.left {
+    text-align: center;
+    width: 16px;
+}
+
+.exit {
+    cursor: pointer;
+}
+
+.nav {
+    color: #888;
+}
+
+.card .card-content {
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 58%, rgba(242,242,242,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(58%,rgba(255,255,255,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 58%,rgba(242,242,242,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, rgba(255,255,255,1) 58%,rgba(242,242,242,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 58%,rgba(242,242,242,1) 100%); /* IE10+ */
+    background: linear-gradient(135deg, rgba(255,255,255,1) 58%,rgba(242,242,242,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.card {
+    -webkit-transition: margin-top 0.3s;
+    -moz-transition: margin-top 0.3s;
+    -o-transition: margin-top 0.3s;
+    -ms-transition: margin-top 0.3s;
+    transition: margin-top 0.3s;
+}
+
+.active .card:hover {
+    margin-top: -20px;
+}
+.card.face-down:hover {
+    margin-top: 0;
+}
+
+.hand-conainer {
+    display: block;
+    position: relative;
+    height: 150px;
+    text-align: center;
+}
+
+.hand-container .hand {
+    clear: both;
+    width: 420px;
+    margin: 0 auto;
+}
+
+.hand-container .owner {
+    clear: both;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.south {
+    position: absolute;
+    width: 100%;
+    bottom: 12pt;
+}
+.east {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    top: 40%;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.west {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.north {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.arena {
+    width: 400px;
+    height: 240px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -140px; 
+    margin-left: -200px; 
+}
+
+.arena-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.placeholder {
+    width: 44%;
+    position: relative;
+    height: 100%;
+}
+
+.placeholder .card {
+    width: 60px;
+}
+
+.north-ph {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 50%;
+    margin-left: -30px;
+}
+
+.south-ph {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30px;
+}
+
+.west-ph {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -50px;
+}
+
+.east-ph {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -50px;
+}
+
+.bids-summary {
+    font-size: 10pt;
+    position: absolute;
+    list-style: none;
+    background: #faefbf;
+    padding: 12pt 16pt;
+    padding-bottom: 18pt;
+    max-width: 120pt;
+    overflow: hidden;
+    border-radius: 6pt;
+}
+
+.arena .bids-summary {
+    position: absolute;
+    right: 0;
+}
+
+.bids {
+    padding: 0;
+    padding-top: 6pt;
+    min-width: 120pt;
+    width: 300pt;
+    height: 66pt;
+    overflow: auto;
+    margin: 0 auto;
+    line-height: 12pt;
+    font-size: small;
+}
+
+.bids .extra {
+    margin-top: 8pt;
+    font-weight: normal;
+}
+
+#bid-select {
+    width: 39pt;
+}
+
+
+.bids li {
+    list-style: none;
+}
+.bids .bidder {
+    width: 100px;
+    display: block;
+    float: left;
+}
+
+.placeholder .card {
+    float: right;
+}
+
+.msg {
+    text-align: center;
+    font-size: 10pt;
+    width: 125pt;
+    border-radius: 6pt;
+    font-weight: bold;
+}
+
+.owner {
+    font-size: small;
+    font-weight: bold;
+    color: #444;
+}
+
+.games {
+    list-style: none;
+    padding: 0;
+}
+
+.games li .state {
+    font-size: 8pt;
+    text-transform: lowercase;
+    border-radius: 4pt;
+    padding: 2pt 4pt;
+    background: white;
+    border: #888 1px solid;
+}
+
+.games li:nth-child(2n+1) {
+    background: #f1f1f1;
+}
+
+.games li:nth-child(2n) .state {
+    background: #f1f1f1;
+}
+
+.games li {
+    padding: 6pt;
+}
+
+.games li .right {
+    float: right;
+}
+
+.scoreboard {
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.my-score {
+    width: 50%;
+}
+.scoreboard .you, .scoreboard .my-score {
+    border-right: 1px #999 solid;
+}
+.scoreboard .team {
+    font-size: 8pt;
+}
+
+.you,  .the-others {
+    width: 49%;
+    float: left;
+}
+h4 {
+    margin:6pt 0;
+    padding-top: 4pt
+    padding-left: 4pt;
+}
+hr {
+    border: none;
+    border-bottom: 1px #999 solid;
+}
+
+.score small {
+    font-weight: normal;
+}
+
+.east .card, .west .card {
+    width: 30px;
+}
+
+.east .hand, .west .hand {
+    width: 260px;
+}
+
+.wrapper {
+    position: relative;
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 2em;
+    height: 580px;
+}

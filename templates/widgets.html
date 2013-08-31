@@ -1,0 +1,84 @@
+<template name="gameSearch">
+    <div class="search-results">
+    <h2>Games</h2>
+        {{> gameList}}
+    </div>
+</template>
+
+<template name="gameList">
+  <ul class="games">
+  {{#each games}}
+        {{> gameListItem}}
+  {{/each}}
+  </ul>
+
+</template>
+
+<template name="gameListItem">
+        <li>{{name}} <span class="right"> <span class="state {{state}}">{{state}}</span> {{#if canJoin}}
+        <button class="btn join-btn">Join</button> {{/if}}
+            {{#if canPlay}} <button class="btn play-btn">Play</button>{{/if}} </span></li>
+</template>
+
+<template name="createGame">
+    <div class="create-game">
+        <h2>New game</h2>
+
+        <input name="name" id="gameName" type="text">
+        <input value="Start &rarr;" class="create" type="button">
+    </div>
+</template>
+
+<template name="card">
+
+    {{#if suit}}
+
+    <div class="card {{suit}}" data-suit="{{suit}}" data-symbol="{{symbol}}">
+        <div class="card-content">
+            <div class="symbol left">{{symbol}}
+                <div class="suit"></div>
+            </div>
+        </div>
+    </div>
+
+    {{/if}}
+</template>
+
+<template name="faceDownCard">
+    <div class="card face-down">
+        <div class="card-content">&nbsp;</div>
+    </div>
+</template>
+
+<template name="bid">
+    <li>
+        <span class="bidder">{{bidder.username}}</span>
+        <span class="bid {{suit}}">{{number}} <span class="suit"></span></span>
+    </li>
+</template>
+
+<template name="bidInput">
+    <select name="bid" id="bid-select">
+        <option value="pass">pass</option>
+    {{#each getAvailableBids}}
+        <option class="{{suit}}" value="{{number}}-{{suit}}">{{number}} {{suit_icon}}</option>
+    {{/each}}
+    </select>
+    <button class="bid-btn">&#10003;</button>
+</template>
+
+<template name="wins">
+    <div class="scoreboard">
+       <div class="you"> <span class="team">Us</span><br/>
+        <span class = "score">
+            {{myTeamHasWon}} <small title="total required">/{{myTeamRequires}}</small>
+        </span>
+      </div>
+       <div class="the-others"> <span class="team">Them</span><br/>
+        <span class = "score">
+            {{theOtherTeamHasWon}} <small title="total required">/{{theOtherTeamRequires}}</small>
+        </span>
+      </div>
+    </div>
+
+</template>

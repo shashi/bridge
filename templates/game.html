@@ -1,0 +1,138 @@
+<template name="game">
+
+<div class="nav"><a class="exit">&#x2302;</a> | {{game.name}}</div>
+   <!-- name of the game -->
+{{#if stillOpen}}
+{{#if teamsNotFormed }}
+    <h3>Pick a team member.</h3>
+    <ul class="player-list">
+      {{#each players}}
+            <li>{{username}}
+                {{#if notSelf _id}} <button class="pick-team">Pick as teammate</button> {{/if}}</li>
+      {{/each}}
+    </ul>
+{{else}}
+
+    <h3>My Team</h3>
+    <ul>
+        {{#each myTeam}}
+        <li>{{username}}</li>
+        {{/each}}
+    </ul>
+
+    <h3>The Other Team</h3>
+    <ul>
+        {{#each theOtherTeam}}
+        <li>{{username}}</li>
+        {{/each}}
+    </ul>
+
+{{/if}}
+{{else}}
+<div class="wrapper">
+<div class="hand-container north">
+    <div class="hand" style="width: {{north.hand.width}}px">
+        {{#each north.hand}}
+            {{> faceDownCard}}
+        {{/each}}
+    </div>
+
+    <div class="owner">
+        {{ north.username }} (teammate)
+    </div>
+</div>
+
+<div class="hand-container west">
+    <div class="hand" style="width: {{west.hand.width}}px;">
+        {{#each west.hand}}
+            {{> faceDownCard}}
+        {{/each}}
+    </div>
+
+    <div class="owner">
+        {{ west.username }}
+    </div>
+</div>
+
+<div class="hand-container east">
+    <div class="hand" style="width: {{east.hand.width}}px;">
+        {{#each east.hand}}
+            {{> faceDownCard}}
+        {{/each}}
+    </div>
+
+    <div class="owner">
+        {{ east.username }}
+    </div>
+</div>
+
+<div class="hand-container south">
+    <div class="hand {{#if myTurnToPlay}}active{{/if}}" style="width: {{south.hand.width}}px">
+	    {{#each south.hand}}
+	        {{> card}}
+	    {{/each}}
+
+
+        <div class="owner">
+            {{ south.username }} (you)
+        </div>
+    </div>
+</div>
+
+<!-- this is where everything happens -->
+<div class="arena">
+    <div class="arena-inner">
+    {{#if finishedBidding}}
+        <!-- drop cards -->
+        <div class="bids-summary">
+	{{#if finishedBidding}}
+		{{#if myTurnToPlay}}
+		    <div class="msg">Your turn.</div>
+		{{else}}
+		    <div class="msg">{{currentlyPlaying.username}}'s turn.</div>
+		{{/if}}
+	{{/if}}
+
+            <hr/>
+            {{> wins }}
+            <br/>
+            <br/>
+            <br/>
+            <h4>Bidding history</h4>
+            <ul class="bids">
+                {{#each game.getBids}}
+                    {{> bid}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="placeholder">
+            <div class="north-ph">{{>card north.currentCard}}</div>
+            <div class="west-ph">{{>card west.currentCard}}</div>
+            <div class="east-ph">{{>card east.currentCard}}</div>
+            <div class="south-ph">{{>card south.currentCard}}</div>
+        </div>
+    {{else}}
+        <h3>Bids</h3>
+        <ul class="bids">
+            {{#each game.getBids}}
+                {{> bid}}
+            {{/each}}
+            <li>
+
+            <li class="extra">
+            {{#if myTurnToBid}}
+                <em>Your turn!</em>&nbsp;
+                {{> bidInput}}
+            {{else}}
+                {{currentlyBidding.username}} bidding...
+            {{/if}}
+            </li>
+        </ul>
+
+    {{/if}}
+    </div><!-- arena-inner -->
+</div>
+</div> <!-- wrapper -->
+{{/if}}
+
+</template>

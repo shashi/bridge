@@ -1,0 +1,27 @@
+Models
+======
+* Game
+* Player
+
+Pages
+=====
+
+Home
+    Create Game
+    Game Search
+    Join Game
+Game
+    Pick player
+    Bid
+    Drop
+    Show results etc
+
+
+Meteor
+======
+Meteor scans all the HTML files in your directory for three top-level elements: <head>, <body>, and <template>. The head and body sections are separately concatenated into a single head and body, which are transmitted to the client on initial page load.
+
+Every Meteor client includes an in-memory database cache. To manage the client cache, the server publishes sets of JSON documents, and the client subscribes to those sets. As documents in a set change, the server patches each client's cache.
+
+
+
